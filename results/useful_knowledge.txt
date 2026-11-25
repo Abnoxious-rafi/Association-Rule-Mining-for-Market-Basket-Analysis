@@ -1,0 +1,60 @@
+ONLINE RETAIL MARKET BASKET ANALYSIS
+
+Dataset and preparation
+- Raw rows: 541,909
+- Cleaned product lines: 524,878
+- Baskets analyzed: 19,960
+- Distinct products: 3,922
+- Missing customer IDs retained: 135,080
+
+Method and verification
+- Apriori and FP-Growth were run on the same baskets and thresholds.
+- Both algorithms' frequent itemsets were required to match exactly.
+- MLxtend Apriori and FP-Growth independently matched the full-data baseline.
+- MLxtend cross-check itemsets: {'MLxtend Apriori': 142, 'MLxtend FP-Growth': 142}
+- Rule evaluation: confidence >= 0.600, lift > 1.
+- Timing is miner-only; memory is Python peak allocation measured by tracemalloc.
+
+Pattern evaluation
+- Frequent itemsets: 142
+- Association rules passing the filters: 8
+- Highest rule lift: 16.278213292556252
+
+Performance comparison (mean measurements)
+- Dataset Size:
+  Apriori, support=0.030, dataset=25%: 1.033s, 1.81MB, 133 itemsets, 12 rules
+  FP-Growth, support=0.030, dataset=25%: 0.547s, 7.02MB, 133 itemsets, 12 rules
+  Apriori, support=0.030, dataset=50%: 2.352s, 1.91MB, 142 itemsets, 9 rules
+  FP-Growth, support=0.030, dataset=50%: 1.267s, 14.32MB, 142 itemsets, 9 rules
+  Apriori, support=0.030, dataset=75%: 1.274s, 1.95MB, 142 itemsets, 8 rules
+  FP-Growth, support=0.030, dataset=75%: 1.878s, 21.14MB, 142 itemsets, 8 rules
+  Apriori, support=0.030, dataset=100%: 1.600s, 1.96MB, 142 itemsets, 8 rules
+  FP-Growth, support=0.030, dataset=100%: 2.608s, 27.94MB, 142 itemsets, 8 rules
+- Support Sensitivity:
+  Apriori, support=0.020, dataset=100%: 21.002s, 8.23MB, 385 itemsets, 31 rules
+  FP-Growth, support=0.020, dataset=100%: 5.448s, 49.41MB, 385 itemsets, 31 rules
+  Apriori, support=0.030, dataset=100%: 1.600s, 1.96MB, 142 itemsets, 8 rules
+  FP-Growth, support=0.030, dataset=100%: 2.608s, 27.94MB, 142 itemsets, 8 rules
+  Apriori, support=0.050, dataset=100%: 0.476s, 0.31MB, 36 itemsets, 0 rules
+  FP-Growth, support=0.050, dataset=100%: 1.013s, 10.34MB, 36 itemsets, 0 rules
+
+Most frequent products by basket
+- 85123A | WHITE HANGING HEART T-LIGHT HOLDER: 2,198 baskets (11.0% of baskets)
+- 85099B | JUMBO BAG RED RETROSPOT: 2,089 baskets (10.5% of baskets)
+- 22423 | REGENCY CAKESTAND 3 TIER: 1,988 baskets (10.0% of baskets)
+- 47566 | PARTY BUNTING: 1,685 baskets (8.4% of baskets)
+- 20725 | LUNCH BAG RED RETROSPOT: 1,565 baskets (7.8% of baskets)
+
+Strongest positive associations by lift
+- If a basket contains [22698 | PINK REGENCY TEACUP AND SAUCER], it also contains [22697 | GREEN REGENCY TEACUP AND SAUCER] in 82.6% of cases (support=0.032, lift=16.278).
+- If a basket contains [22697 | GREEN REGENCY TEACUP AND SAUCER], it also contains [22698 | PINK REGENCY TEACUP AND SAUCER] in 62.4% of cases (support=0.032, lift=16.278).
+- If a basket contains [22699 | ROSES REGENCY TEACUP AND SAUCER], it also contains [22697 | GREEN REGENCY TEACUP AND SAUCER] in 72.0% of cases (support=0.038, lift=14.190).
+- If a basket contains [22697 | GREEN REGENCY TEACUP AND SAUCER], it also contains [22699 | ROSES REGENCY TEACUP AND SAUCER] in 75.7% of cases (support=0.038, lift=14.190).
+- If a basket contains [22726 | ALARM CLOCK BAKELIKE GREEN], it also contains [22727 | ALARM CLOCK BAKELIKE RED] in 65.3% of cases (support=0.032, lift=12.403).
+- If a basket contains [22727 | ALARM CLOCK BAKELIKE RED], it also contains [22726 | ALARM CLOCK BAKELIKE GREEN] in 60.9% of cases (support=0.032, lift=12.403).
+- If a basket contains [22386 | JUMBO BAG PINK POLKADOT], it also contains [85099B | JUMBO BAG RED RETROSPOT] in 67.7% of cases (support=0.041, lift=6.472).
+- If a basket contains [21931 | JUMBO STORAGE BAG SUKI], it also contains [85099B | JUMBO BAG RED RETROSPOT] in 61.1% of cases (support=0.036, lift=5.843).
+
+Potential use
+- Consider testing the strongest co-purchases for product placement, bundles, or cross-promotions.
+- These rules show co-occurrence, not causation; validate any retail action with a controlled experiment.

@@ -1,0 +1,59 @@
+{
+  "raw_rows": 541909,
+  "missing_customer_ids_preserved": 135080,
+  "missing_or_blank_required_rows_removed": 1454,
+  "cancelled_invoice_rows_removed": 9288,
+  "nonpositive_quantity_or_price_rows_removed": 1063,
+  "duplicate_rows_removed": 5226,
+  "cleaned_rows": 524878,
+  "selected_rows": 524878,
+  "basket_count": 19960,
+  "product_count": 3922,
+  "country_filter": null,
+  "support_thresholds": [
+    0.05,
+    0.03,
+    0.02
+  ],
+  "fixed_support": 0.03,
+  "dataset_size_fractions": [
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "min_confidence": 0.6,
+  "max_itemset_length": 3,
+  "repeats": 1,
+  "random_seed": 42,
+  "performance_measurement_rows": 14,
+  "package_versions": {
+    "python": "3.10.0",
+    "pandas": "2.3.3",
+    "openpyxl": "3.1.5",
+    "matplotlib": "3.10.7",
+    "mlxtend": "0.23.4"
+  },
+  "evaluation": {
+    "frequent_itemset_count": 142,
+    "association_rule_count": 8,
+    "positive_lift_rule_count": 8,
+    "maximum_rule_lift": 16.278213292556252
+  },
+  "mlxtend_crosscheck_itemsets": {
+    "MLxtend Apriori": 142,
+    "MLxtend FP-Growth": 142
+  },
+  "output_files": {
+    "performance": "C:\\Users\\Rafi\\Downloads\\data_mining\\project\\results\\performance_comparison.csv",
+    "frequent_itemsets": "C:\\Users\\Rafi\\Downloads\\data_mining\\project\\results\\frequent_itemsets.csv",
+    "association_rules": "C:\\Users\\Rafi\\Downloads\\data_mining\\project\\results\\association_rules.csv",
+    "top_products": "C:\\Users\\Rafi\\Downloads\\data_mining\\project\\results\\top_products.csv",
+    "support_sensitivity_chart": "C:\\Users\\Rafi\\Downloads\\data_mining\\project\\results\\support_sensitivity.png",
+    "dataset_scalability_chart": "C:\\Users\\Rafi\\Downloads\\data_mining\\project\\results\\dataset_scalability.png",
+    "top_products_chart": "C:\\Users\\Rafi\\Downloads\\data_mining\\project\\results\\top_products.png",
+    "rule_quality_chart": "C:\\Users\\Rafi\\Downloads\\data_mining\\project\\results\\rule_quality.png",
+    "useful_knowledge": "C:\\Users\\Rafi\\Downloads\\data_mining\\project\\results\\useful_knowledge.txt",
+    "pipeline_summary": "C:\\Users\\Rafi\\Downloads\\data_mining\\project\\results\\pipeline_summary.json"
+  }
+}
